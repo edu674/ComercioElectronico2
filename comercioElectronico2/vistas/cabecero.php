@@ -18,6 +18,7 @@
     
     <!-- CSS Estilos -->
     <link rel="stylesheet" href="../css/estilos.css">
+
 </head>
 <body> 
 <!-- barra de navegacion -->
@@ -29,9 +30,8 @@
            <ul class="brand-logo">
           <!--  <li><img  src="../img/logo4.png" height="64px"></li> -->
           <!--  <li><img  src="../img/nombre3.png" height="64px" ></li> -->
-           <li><img src="../img/banner.png" alt="" height="64px"></li>
+           <li><img src="../img/logo5.png" alt="" height="64x"></li>
            </ul> 
-            <!-- <li><a><img class="brand-logo" src="../img/nombre.png" height="64px"></a></li> -->
             <a href="" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons md-36">menu</i></a>
             <!-- nav var principal -->
             <ul class="right hide-on-med-and-down" id="nav-mobile">
@@ -54,7 +54,7 @@
             <a href=""><span class="black-text email">Correo@mail.com</span></a>
             </div>
         </div>
-            <li><a href="">Inicio<i class="material-icons md-36">home</i></a></li>
+            <li><a href="index.php">Inicio<i class="material-icons md-36">home</i></a></li>
             <li><a href="">catalogo<i class="material-icons md-36">book</i></a></li>
             <li><a href="">Acarca de nosotros<i class="material-icons md-36">person_search</i></a></li>
             <li><a href="">Carrito de compras(0)<i class="material-icons md-36">shopping_cart</i></a></li>

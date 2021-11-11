@@ -80,9 +80,49 @@ span.badge {
     top: 5px;
     border-radius: 50%;
 }
+.textoTitulo{
+    color: blue;
+}
+.txtPrecio{
+padding: 0px;
+padding-left: 0px;
+font-size: 40px;
+font-family: 'bold';
+color: black;
+}
+.boton{
+   /*padding: 30px 70px;*/
+   border-radius: 10px;
+   font-size: 100%;
+   outline: none;
+   justify-content: center;
+   text-align:center;
+   width: 70%;
+   height: 50px;
+   position: relative; 
+   /*left:10%;*/
+}
 
-/*.btn-floating.halfway-fab {
-position: relative;
-right: 80px;
-bottom: -20px;
-}*/
+     /*   .toolbar ul li a {
+            display:table-cell;
+            vertical-align: middle;
+            height:100px;
+            border: solid 1px black;
+        } */
+
+.carrusel .prev{
+    position: absolute;
+    top: 35%;
+    left: -5%;
+    cursor: pointer;
+}
+
+.carrusel .next{
+    position: absolute;
+    top: 35%;
+    right: -5%;
+    cursor: pointer;
+}
+.slick-dots{
+    visibility: hidden;
+}

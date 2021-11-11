@@ -6,18 +6,11 @@ require('cabecero.php');
     if (!$_GET) {
          header('Location: index.php?pagina=1');
      }
-    include('../php/conexion.php');
      require_once("../modelos/tienda.php");
      $resultado=new tienda();
      $query=$resultado->buscar();
-     $objeto=$query->fetch_object();
-     $int=$objeto;
-     // var_dump($query);
        $total=16;
        $inicio=($_GET['pagina']-1)*$total;
-       // $resultado=  $conexion -> query("SELECT * FROM `productos`") or die($conexion -> error);
-       // var_dump($resultado);
-       // $totalbd=$resultado->num_rows;
        $totalbd=$query->num_rows;
        $paginas=$totalbd/16;
        $paginas=ceil($paginas);
@@ -29,9 +22,6 @@ require('cabecero.php');
          header('Location: index.php?pagina=1');
        } 
         $query=$resultado->productos($inicio,$total);
-        // var_dump($query);0
-        // $sql=  $conexion -> query("SELECT * FROM `productos` LIMIT $inicio,$total") or die($conexion -> error);
-         // var_dump($sql);
 
      ?>           
 <!-- carrusel -->
@@ -97,12 +87,12 @@ require('cabecero.php');
       <div class="card">
         <div class="card-image">
           <img class="activator" src="../img/productos/<?php echo $fila['imagen']?>" height="162" style="object-fit: scale-down;">
-          <a class="btn red btn-floating halfway-fab pulse"><i class="material-icons right">add_shopping_cart</i></a>
+          <a class="btn red btn-floating halfway-fab pulse"href="productos.php?id=<?php echo $fila['id_producto']?>"><i class="material-icons right">add_shopping_cart</i></a>
         </div>
         
         <div class="card-content">
             <div style="height:80px; overflow: hidden;"><h6 style="font-family: Arial Black;" align="center"><?php echo $fila['nombre'] ?></h6></div>
-             <h6 align="center">$<?php echo $fila['precio']?></h6>
+             <h6 align="center">$<?php echo number_format($fila['precio'], 2, '.', ',');?></h6>
         
         
         </div>
@@ -152,9 +142,3 @@ require('cabecero.php');
 <?php 
 require("footer.php");
  ?>
-<!-- <script type="text/javascript">
-    function Carrusel(){
-        alert("Browser has loaded the current frame");
-    };
-</script> --> 
-<!-- <script type="text/javascript" src="../js/main.js"></script> -->

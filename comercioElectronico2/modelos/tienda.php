@@ -1,26 +1,25 @@
 <?php 
 require "../php/conexion.php";
-
- class tienda{
- 	
+ class tienda{	
  	
  	public function buscar(){
-        global $conexion;
- 		$query=  $conexion -> query("SELECT * FROM `productos`") or die($conexion -> error);
- 		// $query->num_rows;
-        // var_dump($query);
-
-        return $query;
+      global $conexion;       
+ 	$query=  $conexion -> query("SELECT * FROM `productos`") or die($conexion -> error);
+      return $query;
  	}
 
         public function productos($var1,$var2){
         global $conexion;
         $sql=  $conexion -> query("SELECT * FROM `productos` LIMIT $var1,$var2") or die($conexion -> error);
-        // $query->num_rows;
-        // var_dump($query);
-
         return $sql;
     }
+
+      public function VistaProducto($id){
+      global $conexion;       
+      $query=  $conexion -> query("SELECT * FROM `productos` WHERE id_producto=$id") or die($conexion -> error);
+      $sql=mysqli_fetch_row($query);
+      return $sql;
+      }
  }
  ?>
 
