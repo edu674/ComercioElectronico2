@@ -13,7 +13,7 @@ require('cabecero.php');
 		 --><br>
 		<div class="row">
 			<div class="col s12">
-				<form action="../controlador/registrar.php" method="post">
+				<form action="../controlador/Registrar.php" method="post">
 					<!--Nombre-->
 		
 					<div class="col s12">

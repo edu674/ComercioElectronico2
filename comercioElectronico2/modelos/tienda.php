@@ -20,7 +20,16 @@ require "../php/conexion.php";
       $sql=mysqli_fetch_row($query);
       return $sql;
       }
+
+      public function buscarUsuario($correo){
+      global $conexion;       
+      $query=  $conexion -> query("SELECT * FROM `usuarios` WHERE correo_electronico='$correo'") or die($conexion -> error);
+      $sql=mysqli_fetch_array($query);
+      return $sql;
+      }
  }
+
+
  ?>
 
 

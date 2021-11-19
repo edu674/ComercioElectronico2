@@ -14,9 +14,27 @@ public function agregarUsuario($correo,$contrasena,$nombres,$apellidos,$calle,$c
   	global $conexion;
     $sql="SELECT * FROM `usuarios` WHERE correo_electronico='$correo'";
     $query=mysqli_query($conexion,$sql);
-    $lin=mysqli_num_rows($query);
-    return $lin;
+    $query=mysqli_num_rows($query);
+    return $query;
   }
+
+  public function actualizarUsuario($correo,$nombres,$apellidos,$calle,$colonia,$municipio,$estado,$codigoPostal,$telefono,$direccion2,$telefono2)
+{
+    global $conexion; 
+  $insert_sql="UPDATE `usuarios` SET `nombres`='$nombres',`apellidos`='$apellidos',`calle`='$calle',`colonia`='$colonia',`municipio`='$municipio',`estado`='$estado',`codigo_postal`='$codigoPostal',`Telefono`='$telefono',`direccion_opcional`='$direccion2',`telefono_opcional`='$telefono2' WHERE correo_electronico='$correo'";
+  $query=mysqli_query($conexion,$insert_sql);
+  return $query;
+}
+
+ public function verificarUsuario($correo,$contrasena){
+    global $conexion;
+    $sql="SELECT *  FROM `usuarios` WHERE correo_electronico='$correo' and contraseña='$contrasena'";
+    $query=mysqli_query($conexion,$sql);
+    $query=mysqli_fetch_row($query);
+    return $query;
+  }
+
+
 
 
 }

@@ -3,7 +3,6 @@
 session_start(); 
      require_once("../modelos/formularios.php");
 	$nombres=$_POST['nombres'];
-	$_SESSION['formulario']=$nombres;
 	$apellidos=$_POST['apellidos'];
 	$codigoPostal=$_POST['codigopostal'];
 	$correo=$_POST['correo'];
@@ -13,7 +12,6 @@ session_start();
 	$estado=$_POST['estado'];
 	$contrasena=$_POST['contrasena'];
 	$contrasena2=$_POST['contrasena2'];
-	// $contrasena=hash('sha512',$contrasena);
 	$tipo=$_POST['tipo'];
 	$telefono=$_POST['telefono'];
 	$direccion2=$_POST['direccion2'];
@@ -28,6 +26,12 @@ session_start();
     }else{
     $contrasena=hash('sha512',$contrasena);	
     $registar->agregarUsuario($correo,$contrasena,$nombres,$apellidos,$calle,$colonia,$municipio,$estado,$codigoPostal,$telefono,$direccion2,$telefono2,$tipo);
+    $userdata=array(
+    	'correo'=>$correo,
+    	'nombre'=>$nombres,
+    	'tipo'=>$tipo
+    );
+    $_SESSION['usuario']=$userdata;
     echo'<script> 
 		alert("registro exitoso!");0
 		window.location="../vistas/index.php";

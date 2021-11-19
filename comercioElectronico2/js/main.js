@@ -73,6 +73,20 @@ function contraseña(){
     })
 }
 
+function actulizarmsn(){
+    M.toast({
+        html: 'datos actualizados', 
+        classes:"green rounded",
+    })
+}
+
+function verificarUsuario(){
+    M.toast({
+        html: 'correo o contraseña incorrecta', 
+        classes:"red rounded",
+    })
+}
+
 function slider(){
  $('.carrusel').slick({
   // lazyLoad: 'ondemand',
@@ -109,4 +123,16 @@ function slider(){
 });
 }
 
+   function slide(){
+    let burguer= document.querySelector('.menu');
+    let navegation=document.querySelector('.navegacion');
+    navegation.classList.toggle("open");
+    }
 
+function ActualizarUsuario(){
+     $('#contenidoUsuario').load('Actulizar.php');
+    }
+
+function EnviarPost( id){
+    document.getElementById(id).submit();
+}    

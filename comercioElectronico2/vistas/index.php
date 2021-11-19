@@ -1,11 +1,13 @@
 <?php 
+if (empty($_GET)) {
+header('Location: index.php?pagina=1');
+}
+
 require('cabecero.php');
  ?>
 
 <?php 
-    if (!$_GET) {
-         header('Location: index.php?pagina=1');
-     }
+
      require_once("../modelos/tienda.php");
      $resultado=new tienda();
      $query=$resultado->buscar();
@@ -23,7 +25,7 @@ require('cabecero.php');
        } 
         $query=$resultado->productos($inicio,$total);
 
-     ?>           
+     ?>              
 <!-- carrusel -->
 <body onload="Carrusel()">
     <div class="row">
@@ -35,37 +37,37 @@ require('cabecero.php');
                 <div class="carousel-item">
                     <h2 class="subtitulo">Escoba</h2>
                     <div class="linea-division"></div>
-                    <a href=""><img class="responsive-img" src="../img/escoba.jpg"></a>
+                    <a href=""><img src="../img/escoba.jpg" width="100%" height="400px" style="max-width: 400px"></a>
                 </div>
 
                 <div class="carousel-item">
                     <h2 class="subtitulo">Clorox</h2>
                     <div class="linea-division"></div>
-                    <img src="../img/cloro.jpg">
+                    <img src="../img/cloro.jpg" width="100%" height="400px" style="max-width: 400px">
                 </div>
 
                 <div class="carousel-item">
                     <h2 class="subtitulo">Esponjas</h2>
                     <div class="linea-division"></div>
-                    <img src="../img/esponjas.jpg">
+                    <img src="../img/esponjas.jpg" width="100%" height="400px" style="max-width: 400px">
                 </div>
 
                 <div class="carousel-item">
                     <h2 class="subtitulo">fabuloso</h2>
                     <div class="linea-division"></div>
-                    <img src="../img/fabuloso.jpg">
+                    <img src="../img/fabuloso.jpg" width="100%" height="400px" style="max-width: 400px">
                 </div>
 
                 <div class="carousel-item">
                     <h2 class="subtitulo">antibacterial</h2>
                     <div class="linea-division"></div>
-                    <img src="../img/gel.jpg">
+                    <img src="../img/gel.jpg" width="100%" height="400px" style="max-width: 400px">
                 </div>
 
                 <div class="carousel-item">
                     <h2 class="subtitulo">Trapos</h2>
                     <div class="linea-division"></div>
-                    <img src="../img/trapos.jpg">
+                    <img src="../img/trapos.jpg" width="100%" height="400px" style="max-width: 400px">
                 </div>    
             </div>
           <a name="catalogo"></a>  <!-- con esta ancla se direcciona directo al catalogo de productos desde la paginacion con #catalogo -->    
@@ -139,6 +141,20 @@ require('cabecero.php');
 <!-- fin boton flotante -->
 <!-- footer -->
 </body>
+
 <?php 
 require("footer.php");
+ ?>
+
+
+<?php 
+if(isset($_SESSION['respuesta'])){
+   if($_SESSION['respuesta']==1){
+    unset($_SESSION['respuesta']);
+    echo "
+    <script>
+     verificarUsuario()
+    </script>";
+   }
+}
  ?>

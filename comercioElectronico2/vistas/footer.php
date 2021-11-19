@@ -1,8 +1,8 @@
 <footer class="page-footer">
-          <div class="container">
+      <!--     <div class="container">
             <div class="row">
             </div>
-          </div>
+          </div> -->
           <div class="footer-copyright">
             <div class="container">
             © 2021 Copyright Text Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere fuga tempore ipsa magnam quidem esse placeat quod quos inventore quam id voluptatum, consequuntur, amet laborum dolorem blanditiis minus nemo aspernatur.

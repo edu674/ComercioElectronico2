@@ -6,7 +6,7 @@ $resultado=new tienda();
 $producto=$resultado->VistaProducto($id);
 $carusel=$resultado->productos(0,14);
  ?>
- <!-- librerias para el carrusel -->
+ <!-- librerias para el slider -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 
@@ -14,8 +14,9 @@ $carusel=$resultado->productos(0,14);
 	
     <div class="row " >
 		<div class="col l5 s8 offset-l1 offset-s2" style="padding-top:50px">
-			<img class="materialboxed" src="../img/productos/<?php echo($producto[6]);?>" width="400" height="400" style="object-fit: contain;">
+			<img class="materialboxed" src="../img/productos/<?php echo($producto[6]);?>" width="100%"  height="400" style="object-fit: contain; max-width: 400px">
 		</div>
+		<div class="producto">
 		<div class="col l6 s8 offset-s2" style="padding-top: 70px">
 			<h2 class="textoTitulo"><?php echo($producto[2]);  ?></h5>
 			<h4 class="txtPrecio">$<?php echo number_format($producto[7], 2, '.', ',');?></h4>
@@ -23,6 +24,7 @@ $carusel=$resultado->productos(0,14);
 			<br>
 			<br>
             <button class="btn waves-effect waves-light boton red" type="submit" name="action" >Agregar al carrito </button>		
+		</div>
 		</div>
 	</div>
 	<br>
