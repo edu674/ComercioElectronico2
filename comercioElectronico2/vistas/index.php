@@ -2,12 +2,6 @@
 if (empty($_GET)) {
 header('Location: index.php?pagina=1');
 }
-
-require('cabecero.php');
- ?>
-
-<?php 
-
      require_once("../modelos/tienda.php");
      $resultado=new tienda();
      $query=$resultado->buscar();
@@ -24,6 +18,10 @@ require('cabecero.php');
          header('Location: index.php?pagina=1');
        } 
         $query=$resultado->productos($inicio,$total);
+require('cabecero.php');
+ ?>
+
+<?php 
 
      ?>              
 <!-- carrusel -->

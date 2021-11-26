@@ -1,6 +1,6 @@
 <?php 
  session_start();
-unset($_SESSION["usuario"]);
+// unset($_SESSION);
 // $usuario="edu674@live.com";
 // $nombre="eduardo ivan";
 // $arreglo=array(

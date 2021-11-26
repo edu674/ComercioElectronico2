@@ -1,7 +1,7 @@
 <?php 
 session_start();
-
 $usuario;
+$productoscarrito=0;
 if (isset($_SESSION['usuario'])) {
     $usuario="usuario.php";
     $user=$_SESSION['usuario']['nombre'];
@@ -11,7 +11,9 @@ if (isset($_SESSION['usuario'])) {
     $user="Nombre de Usuario";
     $correo="Correo@mail.com";
 }
-
+if (isset($_SESSION["carrito"])) {
+    $productoscarrito=count($_SESSION['carrito']);
+}
  ?>
 
 <!DOCTYPE html>
@@ -58,7 +60,7 @@ if (isset($_SESSION['usuario'])) {
                 <li><a href="index.php">catalogo</a></li>
                 <li><a href="index.php">Acarca de nosotros</a></li>
                 <li><a href="<?php echo $usuario?>" class=" modal-trigger transparent " name="IniciarSesion"><i class="material-icons md-36">account_circle</i></a></li>
-                <li><span class="badge"><p class="circle red black-text">0</p></span><a href=""><i class="material-icons md-36">shopping_cart</i></a></li>
+                <li><span class="badge"><p class="circle red black-text"><?php echo $productoscarrito; ?></p></span><a href="carrito.php"><i class="material-icons md-36">shopping_cart</i></a></li>
             </ul>
 
     </div> 
@@ -76,7 +78,7 @@ if (isset($_SESSION['usuario'])) {
             <li><a href="index.php">Inicio<i class="material-icons md-36">home</i></a></li>
             <li><a href="">catalogo<i class="material-icons md-36">book</i></a></li>
             <li><a href="">Acarca de nosotros<i class="material-icons md-36">person_search</i></a></li>
-            <li><a href="">Carrito de compras(0)<i class="material-icons md-36">shopping_cart</i></a></li>
+            <li><a href="carrito.php">Carrito de compras(<?php echo $productoscarrito; ?>)<i class="material-icons md-36">shopping_cart</i></a></li>
 
     </ul>
 </header>

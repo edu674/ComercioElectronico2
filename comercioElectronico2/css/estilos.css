@@ -225,3 +225,8 @@ font-family: arial black;
    padding: 1%;
 
 }
+.txttable{
+    text-align: right;
+    margin-right: 7%;
+    font-family: "Arial Black";
+}

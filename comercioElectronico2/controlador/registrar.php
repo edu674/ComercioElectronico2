@@ -33,8 +33,7 @@ session_start();
     );
     $_SESSION['usuario']=$userdata;
     echo'<script> 
-		alert("registro exitoso!");0
-		window.location="../vistas/index.php";
+		window.location="../vistas/usuario.php";
 		</script>';
     }
  }else{

@@ -23,7 +23,7 @@ $carusel=$resultado->productos(0,14);
 			<h6><?php echo($producto[5]); ?></h6>
 			<br>
 			<br>
-            <button class="btn waves-effect waves-light boton red" type="submit" name="action" >Agregar al carrito </button>		
+            <a class="waves-effect waves-light btn-large red boton" href="carrito.php?producto=<?php echo $id?>">Agregar al carrito </a>		
 		</div>
 		</div>
 	</div>

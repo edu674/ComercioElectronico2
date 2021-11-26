@@ -133,6 +133,6 @@ function ActualizarUsuario(){
      $('#contenidoUsuario').load('Actulizar.php');
     }
 
-function EnviarPost( id){
+function EnviarPost(id){
     document.getElementById(id).submit();
 }    
