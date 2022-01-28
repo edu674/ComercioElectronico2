@@ -107,6 +107,7 @@ require('cabecero.php');
 <?php 
 require("footer.php");
  ?>
+<!-- atraves del envio del formulario mostrara un mesaje de error o o contraseña incorrecto que se encuentran en el archivo js  -->
 <?php 
 if($_GET){
 if ($_GET['validar']==1) {	

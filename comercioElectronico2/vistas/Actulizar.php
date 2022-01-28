@@ -1,9 +1,9 @@
 <?php 
-session_start();
-include("../modelos/tienda.php");
-$data= new tienda();
-$cor=$_SESSION['usuario']['correo'];
-$userdata=$data->buscarUsuario($cor);
+session_start();//inicia la variable global session
+include("../modelos/tienda.php"); //manda a llamar al modelo tienda.php para buscar al usuario a actualizar 
+$data= new tienda();//se invoca a la clase tienda del modelo tienda
+$cor=$_SESSION['usuario']['correo'];// la variable cor tomara el valor de la varible sesion usuraio, tomando como valor unicamente el correo
+$userdata=$data->buscarUsuario($cor);//la variable userdata almacenara atraves de la funcion buscarUsuario los datos del usuario y los colocara en los input 
 
  ?>
  	<div class="row">
@@ -30,8 +30,8 @@ $userdata=$data->buscarUsuario($cor);
  			<input type="text" name="telefono2" id="telefono2" value="<?php echo $userdata["telefono_opcional"]; ?>"/>
  			<h4>Direccion Secundaria:</h4>
  			<input type="text" name="direccion2"  id="direccion2" value="<?php echo $userdata["direccion_opcional"]; ?>"/>
- 			  <button class="btn waves-effect waves-light red" type="submit" name="action">Actualizar
-                 <i class="material-icons right">send</i>
+ 			<button class="btn waves-effect waves-light red" type="submit" name="action">Actualizar
+               <i class="material-icons right">send</i>
               </button>
  			</form>
  		</div>

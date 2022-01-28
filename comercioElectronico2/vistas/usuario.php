@@ -1,10 +1,9 @@
 <?php 
-// session_start();
-require "cabecero.php";
-require_once("../modelos/tienda.php");
-$data= new tienda();
-$cor=$_SESSION['usuario']['correo'];
-$userdata=$data->buscarUsuario($cor);
+require "cabecero.php";//incluye el cabecero 
+require_once("../modelos/tienda.php");//incluye el modelo tienda
+$data= new tienda();//la variable data invocara a la clase tienda del modelo tienda.php
+$cor=$_SESSION['usuario']['correo'];//la variable $cor tomara el valor del correo de la variable sesion 
+$userdata=$data->buscarUsuario($cor);//la varaible userdata invocara a la funcion buscarUsuario y almaceara los datos del usuario
  ?>
 <main class="sidemenu">
 <!-- sidnav -->
@@ -14,7 +13,7 @@ $userdata=$data->buscarUsuario($cor);
 	<ul>
 		<li class="lista">
 			<a> 
-				<span class="material-icons"  onclick="slide()">menu</span>
+				<span class="material-icons"  onclick="slide()">menu</span> <!-- al clicear en la barra esta se abrira atraves del uso de la funcion de js slide -->
 			</a>		
 		</li>
 		<li class="lista">
@@ -110,6 +109,8 @@ $userdata=$data->buscarUsuario($cor);
 </main>
 
 <?php require"footer.php"; ?>
+
+<!-- cuando se hace el envio de la informacion direcciona a este lugara activando el popup con el mesaje de actualizacion -->
 <?php 
 if(isset($_SESSION['respuesta'])){
    if($_SESSION['respuesta']==1){

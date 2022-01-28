@@ -1,11 +1,11 @@
 <?php 
-require_once("../modelos/tienda.php");
+require_once("../modelos/tienda.php"); //se incluye al modelo tienda.php
 class Carrito{
 
 public function agregarcarrito($id){
 	
-	$consulta=new tienda();
-    $producto=$consulta->VistaProducto($id);
+$consulta=new tienda();
+$producto=$consulta->VistaProducto($id);
 
 	if (isset($_SESSION['carrito'])) {//comprueba que no exista la variable session 
 	if (isset($id)) { // si existe la variable session solicita el id del producto

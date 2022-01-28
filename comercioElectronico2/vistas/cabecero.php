@@ -1,7 +1,9 @@
 <?php 
-session_start();
-$usuario;
-$productoscarrito=0;
+session_start();// se inicia la varaible session
+$usuario;//se crea la varaible usuario
+$productoscarrito=0;//se crea la variable que almacenara el total de productos en nuestro carrito 
+
+//atraves de un if verifica si el usuario inicio o no sesion para sustituir el valor de las variables a sus datos relaes o los deja de manera predetreminada 
 if (isset($_SESSION['usuario'])) {
     $usuario="usuario.php";
     $user=$_SESSION['usuario']['nombre'];
@@ -11,6 +13,8 @@ if (isset($_SESSION['usuario'])) {
     $user="Nombre de Usuario";
     $correo="Correo@mail.com";
 }
+
+//atraves de la funcion count contara cuantos productos tenemos en el carrito para imprimir en pantalla el numero total 
 if (isset($_SESSION["carrito"])) {
     $productoscarrito=count($_SESSION['carrito']);
 }
@@ -104,6 +108,7 @@ if (isset($_SESSION["carrito"])) {
      <p align="center">Usuario nuevo? Registarserse <a href="formulario.php">aqui</a></p>
     </div>
     <div class="modal-footer transparent">
+     <!-- envia formulario atraves de funcion javascript en lugar de post -->
       <a class="waves-effect waves-light btn-large" width="100%" onclick="EnviarPost('IniciarSesion')">Iniciar Sesion</a>
     </div>
     </div>

@@ -89,7 +89,6 @@ function verificarUsuario(){
 
 function slider(){
  $('.carrusel').slick({
-  // lazyLoad: 'ondemand',
   infinite: true,
   slidesToShow: 4,
   slidesToScroll: 4,

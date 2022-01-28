@@ -1,10 +1,10 @@
 <?php 
-require "cabecero.php";
-require_once("../modelos/tienda.php");
-$id=$_GET['id'];
-$resultado=new tienda();
-$producto=$resultado->VistaProducto($id);
-$carusel=$resultado->productos(0,14);
+require "cabecero.php";//se incuye el cabecero
+require_once("../modelos/tienda.php");//se incluye le modelo tienda 
+$id=$_GET['id'];//guardamos el id del producto enviado por el metodo get en la variable $id
+$resultado=new tienda();//invocamos a la clase tienda del modelo tienda.php 
+$producto=$resultado->VistaProducto($id);//atraves de la funcion VistaProducto obetenemos los datos del producto seleccionado 
+$carusel=$resultado->productos(0,14);//obtenemos los datos del producto 0 al 14 para poder colocarlos en el slider 
  ?>
  <!-- librerias para el slider -->
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -32,13 +32,17 @@ $carusel=$resultado->productos(0,14);
 	<br>
 	<br>
 	<hr>
+
+	<!-- slider -->
+
+
 	<h2 class="center-align">Productos que podrian interesarte</h2>
 	 <div class="container">
 	 	<div class="row">
 	 		<div class="carrusel col s12">
 
 	<?php  
-        while($row = mysqli_fetch_array($carusel)){
+        while($row = mysqli_fetch_array($carusel)){//atraves del ciclo while obtenemos los datos de los productos los cuales son transdormados en un arreglo par poder mostarlos al usuario final 
 	 ?> 
 	<div class="col s3">
       <div class="card">
@@ -60,10 +64,12 @@ $carusel=$resultado->productos(0,14);
       </div>
     </div>
    <?php } ?> 
+  
    </div>
 	 </div> 
 	</div>
 </body>
+
 <!-- librerias para el slider -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>		

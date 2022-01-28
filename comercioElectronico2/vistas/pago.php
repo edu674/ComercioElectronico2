@@ -16,6 +16,7 @@ require("cabecero.php");
 <?php 
 require("footer.php");
 ?>
+<!-- script para procesar el pago atraves de paypal  -->
 <script src="https://www.paypal.com/sdk/js?client-id=AQS77ljM6yn5InALQQIUPrFm2OtpsxwBwWDBfymwtUbvUX8dvAP4TPLZBaz-47Dhuvxo388Nr2mdS_Dk&currency=MXN"></script>
        
 <script>

@@ -1,15 +1,16 @@
 <?php 
-if (empty($_GET)) {
+if (empty($_GET)) { //atravez del if preguntamos si get viene vacia para poder redirreccionarla a la pagina 1
 header('Location: index.php?pagina=1');
 }
-     require_once("../modelos/tienda.php");
-     $resultado=new tienda();
-     $query=$resultado->buscar();
-       $total=16;
-       $inicio=($_GET['pagina']-1)*$total;
-       $totalbd=$query->num_rows;
-       $paginas=$totalbd/16;
-       $paginas=ceil($paginas);
+    require_once("../modelos/tienda.php");//incluimos al modelo 
+    $resultado=new tienda();// invocamos a la clase tienda atraves de la varaible resultado
+    $query=$resultado->buscar();//la variable qwery almacenara las datos que nos traiga la funcion buscar los cuales seran los datos de los productos 
+    $carrusel=$resultado->carrusel();//esta funcion trae las imagenes que se mostraran en el carrusel  
+    $total=16;//declaramos el numero total de productos que queramos que se muestren por pagina
+    $inicio=($_GET['pagina']-1)*$total;//resta 1 a la pagina actual de navegacion para enviarlo como parametro a la funcion productos del modelo 
+    $totalbd=$query->num_rows;//obtenemos el numero de registros que nos devuelve la consulta a la base de datos para hacer el calculo de cuantas pagina necesitaremos segun nuestro catalogo de productos
+    $paginas=$totalbd/16;//dividimos el numero de registros entre el numero total de productso que queremos que se muestren por paginacion 
+    $paginas=ceil($paginas);//atraves de funcion ceil redondeamos el total el numero de paginas para que no nos salgan decimales 
        
        if ($_GET['pagina']>$paginas) {
          header('Location: index.php?pagina='.$paginas);
@@ -32,41 +33,19 @@ require('cabecero.php');
             <h2 class="center-align titulo">Productos de nuestra selecion</h2>
             
             <div class="carousel  center-aling">
-                <div class="carousel-item">
-                    <h2 class="subtitulo">Escoba</h2>
+                
+                <?php 
+                while ($imgcarrusel=mysqli_fetch_array($carrusel)) {//atraves de la funcion mysqli_fetch_array convertimos los datos devueltos por la BD en un areglo el cual contendra la informacion acerca de los productos del carrusel
+                 ?>
+
+                <div class="carousel-item"> 
+                    <h2 class="subtitulo"><?php echo $imgcarrusel['nombre'] ?></h2>
                     <div class="linea-division"></div>
-                    <a href=""><img src="../img/escoba.jpg" width="100%" height="400px" style="max-width: 400px"></a>
+                    <a href=""><img src="../img/carruselImagenes/<?php echo $imgcarrusel['imagen'] ?>" width="100%" height="400px" style="max-width: 400px"></a>
                 </div>
 
-                <div class="carousel-item">
-                    <h2 class="subtitulo">Clorox</h2>
-                    <div class="linea-division"></div>
-                    <img src="../img/cloro.jpg" width="100%" height="400px" style="max-width: 400px">
-                </div>
+            <?php } ?>
 
-                <div class="carousel-item">
-                    <h2 class="subtitulo">Esponjas</h2>
-                    <div class="linea-division"></div>
-                    <img src="../img/esponjas.jpg" width="100%" height="400px" style="max-width: 400px">
-                </div>
-
-                <div class="carousel-item">
-                    <h2 class="subtitulo">fabuloso</h2>
-                    <div class="linea-division"></div>
-                    <img src="../img/fabuloso.jpg" width="100%" height="400px" style="max-width: 400px">
-                </div>
-
-                <div class="carousel-item">
-                    <h2 class="subtitulo">antibacterial</h2>
-                    <div class="linea-division"></div>
-                    <img src="../img/gel.jpg" width="100%" height="400px" style="max-width: 400px">
-                </div>
-
-                <div class="carousel-item">
-                    <h2 class="subtitulo">Trapos</h2>
-                    <div class="linea-division"></div>
-                    <img src="../img/trapos.jpg" width="100%" height="400px" style="max-width: 400px">
-                </div>    
             </div>
           <a name="catalogo"></a>  <!-- con esta ancla se direcciona directo al catalogo de productos desde la paginacion con #catalogo -->    
         </div>
@@ -74,12 +53,13 @@ require('cabecero.php');
     </div>   
 <!-- fin carrousel -->
 <hr>
+
 <div class="contenido">
 <div class="row">
  <div class="col s10 push-s1 pull-s1">
           <h2 class="center-align titulo">Catalogo de productos</h2>       
        <?php 
-
+         // convierte el resultado de nuestra consulta a la base de datos en un arreglo y atraves de un ciclo while lo imprimimos en panatalla para que el usuraio lo pueda visualizar
          while($fila = mysqli_fetch_array($query)){
         ?>       
 <!-- card1 -->
@@ -110,17 +90,21 @@ require('cabecero.php');
 </div>
 
 </div> <!-- fin div contenido -->
+ 
  <!-- paginacion -->
 <div class="center-align">
     <ul class="pagination">
-   
+   <!-- atraves de un if desactivamos el boton de retroseso cuando la pagina es meno a uno y redirreciona a la pagina 1 -->
     <li class="<?php echo $_GET['pagina']<=1? 'disabled':'waves-effect' ?>"><a href="index.php?pagina=<?php echo $_GET['pagina']-1?>#catalogo"><i class="material-icons">chevron_left</i></a></li>  
 
+    <!-- atraves de un for pintamos en pantalla el numero total de paginas con el que contara nuestro sitio -->
     <?php
     for ($i=0; $i < $paginas; $i++) { 
     ?>
     <li class="<?php echo$_GET['pagina']==$i+1? 'active blue':'waves-effect'?>"><a href="index.php?pagina=<?php echo ($i+1); ?>#catalogo"><?php echo ($i+1); ?></a></li>
     <?php } ?>
+    
+    <!-- atraves de un if corto cuando el usuario coloca un numero mayor al de nuestra paginacion lo redirreciona a la ultima pagina de nuestro sitio -->
     <li class="<?php echo $_GET['pagina']>=$paginas? 'disabled':'waves-effect'?>"><a href="index.php?pagina=<?php echo $_GET['pagina']+1?>#catalogo"><i class="material-icons">chevron_right</i></a></li>
   </ul>
 </div>
@@ -144,6 +128,7 @@ require('cabecero.php');
 require("footer.php");
  ?>
 
+<!-- atraves de esta condicion verificamos si el usuario se a logggeado de manera correcto enviando un mesnaje de bienvenido o de error dependiendo el caso -->
 
 <?php 
 if(isset($_SESSION['respuesta'])){
