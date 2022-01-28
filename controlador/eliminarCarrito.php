@@ -4,7 +4,7 @@ session_start(); //se verifica que la sesion este activa;
 $arreglo=$_SESSION['carrito'];// el arreglo toma el valor de lo que este guardado en la sesion carrito
 for ($i=0; $i <count($arreglo) ; $i++) { //a traves del for se busca el elemento que quiere serv eliminado
 	if ($arreglo[$i]['id']!=$id) {//si entra al if quiere decir que existe mas de un producto en el carrito
-		$arregloNuevo[]=array(//almacena los productos que encuentra en estte nuevo arreglo
+		$arregloNuevo[]=array(//almacena los productos que encuentra en este nuevo arreglo
 			 'id'=>$arreglo[$i]['id'], 
 			 'nombre'=>$arreglo[$i]['nombre'],
 			 'precio'=>$arreglo[$i]['precio'],
