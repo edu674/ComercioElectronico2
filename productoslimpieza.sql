@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2021 a las 22:21:51
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.10
+-- Tiempo de generación: 28-01-2022 a las 21:16:07
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,6 +45,32 @@ CREATE TABLE `facturacion` (
   `id_cliente` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imgcarrusel`
+--
+
+CREATE TABLE `imgcarrusel` (
+  `id` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `nombre` text COLLATE utf8_spanish2_ci NOT NULL,
+  `imagen` text COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `imgcarrusel`
+--
+
+INSERT INTO `imgcarrusel` (`id`, `id_producto`, `nombre`, `imagen`) VALUES
+(7, 0, 'Escoba', 'escoba.jpg'),
+(8, 0, 'Esponjas', 'esponjas.jpg'),
+(9, 0, 'Fabuloso', 'fabuloso.jpg'),
+(10, 0, 'Antibacterial', 'gel.jpg'),
+(11, 0, 'Clorox', 'cloro.jpg'),
+(12, 0, 'Trapos', 'trapos.jpg'),
+(13, 0, 'Ajax', 'ajax.png');
 
 -- --------------------------------------------------------
 
@@ -182,7 +208,6 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `correo_electronico`, `contraseña`, `nombres`, `apellidos`, `calle`, `colonia`, `municipio`, `estado`, `codigo_postal`, `Telefono`, `direccion_opcional`, `telefono_opcional`, `tipo`) VALUES
 (0, 'AndreaMendez@gmail.com', 'd9e6762dd1c8eaf6d61b3c6192fc408d4d6d5f1176d0c29169bc24e71c3f274ad27fcd5811b313d681f7e55ec02d73d499c9', 'Andrea', 'Mendez Hernadez', 'san martin obispo', 'SanTiago', 'Tepotzotlan', 'Mexico', '54600', '', '', '', 0),
-(1, 'edu674@live.com', 'd9e6762dd1c8eaf6d61b3c6192fc408d4d6d5f1176d0c29169bc24e71c3f274ad27fcd5811b313d681f7e55ec02d73d499c9', 'Eduardo Ivan', 'Maqueda Hernandez', 'cda juarez 1', 'Capula', 'Tepotzotlan', 'Mexico', '54605', '5535772930', '', '', 1),
 (2, 'edd@gmail.com', 'd9e6762dd1c8eaf6d61b3c6192fc408d4d6d5f1176d0c29169bc24e71c3f274ad27fcd5811b313d681f7e55ec02d73d499c9', 'Edgar Santiago', 'Hernadez Colin', 'avenida del floral', 'san rafael', 'loma bonita', 'mexico', '54608', '5535558902', 'cda de la luz ,capula San mateo Mexico', '', 1),
 (3, 'alex@gmail.com', 'd9e6762dd1c8eaf6d61b3c6192fc408d4d6d5f1176d0c29169bc24e71c3f274ad27fcd5811b313d681f7e55ec02d73d499c9', 'Jair  Santiago', 'Martinez Serrano', 'avenida del floral', 'las flores', 'loma bonita', 'mexico', '54608', '5535558902', '', '', 0),
 (4, 'eduardo@gmail.com', 'd9e6762dd1c8eaf6d61b3c6192fc408d4d6d5f1176d0c29169bc24e71c3f274ad27fcd5811b313d681f7e55ec02d73d499c9', 'Eduardo ', 'Rodriguez Hernandez', 'avenida del floral', 'Tepotzotlan', 'Loma Bonita', 'Mexico', '54606', '5535558902', 'avenida del floral 4, Cuautitlán, mexico ', '6689741207', 0),
@@ -199,7 +224,8 @@ INSERT INTO `usuarios` (`id_usuario`, `correo_electronico`, `contraseña`, `nomb
 (16, 'ivan@live.com', 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc5', 'Mike Sparda', 'Maqueda Hernandez', 'prolongacion juarez', 'san rafael', 'tepotzotlan', 'mexico', '54608', '5589301245', 'San sebastian Xhala Cuautitlan Mexico', '5523697845', 0),
 (18, 'pruebahash@hotmail.com', '3d7d5c4340db8cffd70992ba1cbcb73aa92fdb277ed9128edca8bdd36ae46e3aa1f1a3796507abb6253b743f65f899cf51af4b049be8c2229f56bfe9adb71e3c', 'Pedro', 'Maqueda Hernandez', 'privada del cerrojo 1', 'capula', 'tepotzotlan', 'mexico', '56608', '5558762284', 'privada del cerrojo 1, capula, tepotzotlan ex hecaieneda san miguel, mexico ', '4545454', 0),
 (20, 'LuisFernando@gmail.com', 'd9e6762dd1c8eaf6d61b3c6192fc408d4d6d5f1176d0c29169bc24e71c3f274ad27fcd5811b313d681f7e55ec02d73d499c95455b6b5bb503acf574fba8ffe85', 'Luis Eduardo', 'Perez Solano', 'privada del cerrojo 1', 'capula', 'tepotzotlan', 'mexico', '54608', '5526365879', '', '', 0),
-(21, 'ejemplo@skd.com', 'd9e6762dd1c8eaf6d61b3c6192fc408d4d6d5f1176d0c29169bc24e71c3f274ad27fcd5811b313d681f7e55ec02d73d499c95455b6b5bb503acf574fba8ffe85', 'Eduardo Ivan', 'Maqueda Hernandez', '00', 'san rafael', 'loma bonita', 'cda juarez 1', '54608', '5589301245', '465', '5523697845', 0);
+(21, 'ejemplo@skd.com', 'd9e6762dd1c8eaf6d61b3c6192fc408d4d6d5f1176d0c29169bc24e71c3f274ad27fcd5811b313d681f7e55ec02d73d499c95455b6b5bb503acf574fba8ffe85', 'Eduardo Ivan', 'Maqueda Hernandez', '00', 'san rafael', 'loma bonita', 'cda juarez 1', '54608', '5589301245', '465', '5523697845', 0),
+(22, 'edu674@live.com', '3d7d5c4340db8cffd70992ba1cbcb73aa92fdb277ed9128edca8bdd36ae46e3aa1f1a3796507abb6253b743f65f899cf51af4b049be8c2229f56bfe9adb71e3c', 'Eduardo Iván ', 'Maqueda Hernández ', 'cda juarez 1', 'capula', 'Tepotzotlan', 'Mexico', '54608', '5535772930', 'Calle del balneario Tepotzotlán, México ', '5558762284', 0);
 
 -- --------------------------------------------------------
 
@@ -248,6 +274,13 @@ ALTER TABLE `facturacion`
   ADD KEY `id_cliente` (`id_cliente`);
 
 --
+-- Indices de la tabla `imgcarrusel`
+--
+ALTER TABLE `imgcarrusel`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idProducto` (`id_producto`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -286,6 +319,12 @@ ALTER TABLE `ventas`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `imgcarrusel`
+--
+ALTER TABLE `imgcarrusel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -301,7 +340,7 @@ ALTER TABLE `productos_ventas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
