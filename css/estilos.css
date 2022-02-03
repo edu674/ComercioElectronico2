@@ -233,20 +233,13 @@ font-family: arial black;
 .plus{
     border-radius:  5px;
     margin-right: 10%;
-    width: 20%;
+    /*width: 15%;*/
+    font-size: 200%;
+    
 }
 .less{
    border-radius: 5px;
    margin-left: 10%;
-   width: 20%;
-}
-.material-icons.md-plus{
-    size: 36px;
-    margin-left: -30%;
-    margin-right: 40%;
-}
-.material-icons.md-less{
-    size: 36px;
-    margin-right: 40%;
-    margin-left: -30%;
+   /*width: 15%;*/
+   font-size: 200%;
 }

@@ -51,9 +51,9 @@ $arreglocarrito=$_SESSION['carrito']; //la variable $arreglocarrito toma el valo
                          <td>
                             
                             <h6 align="center">
-                                <a class="waves-effect waves-light btn red plus" href="../controlador/Botones.php?id=<?php echo $arreglocarrito[$i]['id'] ?>&op=plus"><i class="material-icons md-plus">add</i></a>
+                                <a class="waves-effect waves-light btn red plus" href="../controlador/Botones.php?id=<?php echo $arreglocarrito[$i]['id'] ?>&op=plus"><p align="center">+</p></a>
                                 <?php echo $arreglocarrito[$i]["cantidad"]?>
-                                <a class="waves-effect waves-light btn red less" href="../controlador/Botones.php?id=<?php echo $arreglocarrito[$i]['id'] ?>&op=less"><i class="material-icons md-less">remove</i></a> 
+                                <a class="waves-effect waves-light btn red less" href="../controlador/Botones.php?id=<?php echo $arreglocarrito[$i]['id'] ?>&op=less"><p align="center">-</p></a> 
                             </h6>
                             
                         </td>
