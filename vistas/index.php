@@ -41,7 +41,7 @@ require('cabecero.php');
                 <div class="carousel-item"> 
                     <h2 class="subtitulo"><?php echo $imgcarrusel['nombre'] ?></h2>
                     <div class="linea-division"></div>
-                    <a href=""><img src="../img/carruselImagenes/<?php echo $imgcarrusel['imagen'] ?>" width="100%" height="400px" style="max-width: 400px"></a>
+                    <a href="productos.php?id=<?php echo $imgcarrusel['id_producto']?>"><img src="../img/productos/<?php echo $imgcarrusel['imagen'] ?>" width="100%" height="400px" style="max-width: 400px"></a>
                 </div>
 
             <?php } ?>

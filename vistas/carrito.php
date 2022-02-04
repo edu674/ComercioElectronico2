@@ -120,10 +120,16 @@ $arreglocarrito=$_SESSION['carrito']; //la variable $arreglocarrito toma el valo
             <a href="#modal1" class="modal-trigger btn-large waves-effect waves-light red ">Iniciar Sesion</a>
             </center>
         <?php } ?>    
- 		</div>
  		
- 	</div>
+        </div>
+        <!-- boton flotante de regreso a los productos -->
+ 		<div class="fixed-action-btn">
+            <a class="btn-floating btn-large blue" href="index.php?pagina=1#catalogo">
+            <i class="large material-icons m-36">reply</i>
+            </a>
+        </div>
 
+ 	</div>
 
  </main>
 

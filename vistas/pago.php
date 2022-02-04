@@ -7,7 +7,7 @@ require("cabecero.php");
 		<div class="s12">
       <br><br><br><br><br>
 			<h1 align="center">¡Ya Casi Son Tuyos!</h1>
-			<h6 align="center">Estas a punto de pagar: <?php echo number_format($_SESSION['total'], 2, '.', ',')?></h6>
+			<h6 align="center">Estas a punto de pagar: $ <?php echo number_format($_SESSION['total'], 2, '.', ',')?></h6>
 			<br>
 			<div align="center" id="paypal-button-container"></div>		
 		</div>

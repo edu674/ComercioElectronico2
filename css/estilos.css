@@ -58,6 +58,7 @@ body {
     font-weight: 200;
     font-family: 'Dancing Script';
     text-transform: uppercase;
+    text-overflow: ellipsis;
 }
 .material-icons.md-36 {
     font-size: 36px;
