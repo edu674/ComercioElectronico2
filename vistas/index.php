@@ -1,4 +1,5 @@
 <?php 
+
 if (empty($_GET)) { //atravez del if preguntamos si get viene vacia para poder redirreccionarla a la pagina 1
 header('Location: index.php?pagina=1');
 }

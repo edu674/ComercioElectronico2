@@ -19,8 +19,10 @@ switch ($opcion) {//switch de aumentar o disminuir cantidad
          echo'<script> 
          window.location.href="../vistas/carrito.php";
          </script>';
-         break;//rompemos el case 
+   break;//rompemos el case 
     
+    
+
     case 'less'://case restar
          $arreglo=$_SESSION['carrito'];// el arreglo toma el valor de lo que esta guardado en la variable super global carrito
          for ($i=0; $i <count($arreglo) ; $i++) { //a traves del for se busca el elemento que quiere sera modificado
@@ -43,6 +45,6 @@ switch ($opcion) {//switch de aumentar o disminuir cantidad
          window.location.href="../vistas/carrito.php";
          </script>';
          	
-         	break;//rompemos el case     
+    break;//rompemos el case     
 }
 ?>
