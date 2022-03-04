@@ -12,7 +12,8 @@ $arreglocarrito=$_SESSION['carrito']; //la variable $arreglocarrito toma el valo
 }
 }
 ?>
- <main  style="position: relative; min-height:800px;">
+ <main class="hide" style="position: relative; min-height:800px;" id="contenido">
+
  	
  	<div class="row">
  		<div class="col s12">
@@ -129,10 +130,12 @@ $arreglocarrito=$_SESSION['carrito']; //la variable $arreglocarrito toma el valo
             </a>
         </div>
 
- 	</div>
-
  </main>
 
 <?php 	
+require_once("preloader.php");
 require_once("footer.php");
 ?>
+<script>
+    preloader('preloader01','contenido');
+</script>

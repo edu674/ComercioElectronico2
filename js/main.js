@@ -122,7 +122,7 @@ function slider(){
 });
 }
 
-   function slide(){
+function slide(){
     let burguer= document.querySelector('.menu');
     let navegation=document.querySelector('.navegacion');
     navegation.classList.toggle("open");
@@ -134,4 +134,18 @@ function ActualizarUsuario(){
 
 function EnviarPost(id){
     document.getElementById(id).submit();
+}
+
+function preloader(preloader, contenido){
+
+    window.addEventListener('load',()=>{
+    setTimeout(cargar, 1000 );
+    function cargar(){
+    document.getElementById(preloader).className='hide';
+    document.getElementById(contenido).className='';
+}
+
+    });
+
+    
 }    
