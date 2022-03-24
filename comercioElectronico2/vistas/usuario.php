@@ -18,35 +18,35 @@ $userdata=$data->buscarUsuario($cor);//la varaible userdata invocara a la funcio
 		</li>
 		<li class="lista">
 			<a href="" id="inicio">
-				<span class="material-icons">home</span>
+				<span class="material-icons tooltipped" data-position="right" data-tooltip="Inicio">home</span>
 				<span class="titulo">inicio</span>
 			</a>		
 		</li>
 
 		<li class="lista">
 			<a onclick="ActualizarUsuario()">
-				<span class="material-icons">manage_accounts</span>
+				<span class="material-icons tooltipped" data-position="right" data-tooltip="Actualizar Datos">manage_accounts</span>
 				<span class="titulo">Actualizar Datos</span>
 			</a>
 		</li>
 
 		<li class="lista">
 			<a>
-				<span class="material-icons">shopping_bag</span>
+				<span class="material-icons tooltipped" data-position="right" data-tooltip="Mis compras">shopping_bag</span>
 				<span class="titulo">Mis compras</span>
 			</a>
 		</li>
 
 		<li class="lista">
 			<a>
-				<span class="material-icons">local_shipping</span>
+				<span class="material-icons tooltipped" data-position="right" data-tooltip="Mis Pedidos">local_shipping</span>
 				<span class="titulo">Mis Pedidos</span>
 			</a>
 		</li>
 
 		<li class="lista">
 			<a  href="#modal2" class=" modal-trigger transparent" >
-				<span class="material-icons">logout</span>
+				<span class="material-icons tooltipped" data-position="right" data-tooltip="Salir">logout</span>
 				<span class="titulo">Salir</span>
 			</a>
 		</li>

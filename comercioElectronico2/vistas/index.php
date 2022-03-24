@@ -1,30 +1,8 @@
 <?php 
-if (empty($_GET)) { //atravez del if preguntamos si get viene vacia para poder redirreccionarla a la pagina 1
-header('Location: index.php?pagina=1');
-}
-    require_once("../modelos/tienda.php");//incluimos al modelo 
-    $resultado=new tienda();// invocamos a la clase tienda atraves de la varaible resultado
-    $query=$resultado->buscar();//la variable qwery almacenara las datos que nos traiga la funcion buscar los cuales seran los datos de los productos 
-    $carrusel=$resultado->carrusel();//esta funcion trae las imagenes que se mostraran en el carrusel  
-    $total=16;//declaramos el numero total de productos que queramos que se muestren por pagina
-    $inicio=($_GET['pagina']-1)*$total;//resta 1 a la pagina actual de navegacion para enviarlo como parametro a la funcion productos del modelo 
-    $totalbd=$query->num_rows;//obtenemos el numero de registros que nos devuelve la consulta a la base de datos para hacer el calculo de cuantas pagina necesitaremos segun nuestro catalogo de productos
-    $paginas=$totalbd/16;//dividimos el numero de registros entre el numero total de productso que queremos que se muestren por paginacion 
-    $paginas=ceil($paginas);//atraves de funcion ceil redondeamos el total el numero de paginas para que no nos salgan decimales 
-       
-       if ($_GET['pagina']>$paginas) {
-         header('Location: index.php?pagina='.$paginas);
-       } 
-       if ($_GET['pagina']<=0) {
-         header('Location: index.php?pagina=1');
-       } 
-        $query=$resultado->productos($inicio,$total);
+require('../controlador/index.php');
 require('cabecero.php');
  ?>
 
-<?php 
-
-     ?>              
 <!-- carrusel -->
 <body onload="Carrusel()">
     <div class="row">
@@ -41,7 +19,7 @@ require('cabecero.php');
                 <div class="carousel-item"> 
                     <h2 class="subtitulo"><?php echo $imgcarrusel['nombre'] ?></h2>
                     <div class="linea-division"></div>
-                    <a href=""><img src="../img/carruselImagenes/<?php echo $imgcarrusel['imagen'] ?>" width="100%" height="400px" style="max-width: 400px"></a>
+                    <a href="productos.php?id=<?php echo $imgcarrusel['id_producto']?>"><img src="../img/productos/<?php echo $imgcarrusel['imagen'] ?>" width="100%" height="400px" style="max-width: 400px"></a>
                 </div>
 
             <?php } ?>
@@ -141,3 +119,4 @@ if(isset($_SESSION['respuesta'])){
    }
 }
  ?>
+

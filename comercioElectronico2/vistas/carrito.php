@@ -12,7 +12,8 @@ $arreglocarrito=$_SESSION['carrito']; //la variable $arreglocarrito toma el valo
 }
 }
 ?>
- <main  style="position: relative; min-height:800px;">
+ <main class="hide" style="position: relative; min-height:800px;" id="contenido">
+
  	
  	<div class="row">
  		<div class="col s12">
@@ -51,9 +52,9 @@ $arreglocarrito=$_SESSION['carrito']; //la variable $arreglocarrito toma el valo
                          <td>
                             
                             <h6 align="center">
-                                <a class="waves-effect waves-light btn red plus"><i class="material-icons md-plus">add</i></a>
+                                <a class="waves-effect waves-light btn red plus" href="../controlador/Botones.php?id=<?php echo $arreglocarrito[$i]['id'] ?>&op=plus"><p align="center">+</p></a>
                                 <?php echo $arreglocarrito[$i]["cantidad"]?>
-                                <a class="waves-effect waves-light btn red less"><i class="material-icons md-less">remove</i></a> 
+                                <a class="waves-effect waves-light btn red less" href="../controlador/Botones.php?id=<?php echo $arreglocarrito[$i]['id'] ?>&op=less"><p align="center">-</p></a> 
                             </h6>
                             
                         </td>
@@ -120,13 +121,21 @@ $arreglocarrito=$_SESSION['carrito']; //la variable $arreglocarrito toma el valo
             <a href="#modal1" class="modal-trigger btn-large waves-effect waves-light red ">Iniciar Sesion</a>
             </center>
         <?php } ?>    
- 		</div>
  		
- 	</div>
-
+        </div>
+        <!-- boton flotante de regreso a los productos -->
+ 		<div class="fixed-action-btn">
+            <a class="btn-floating btn-large blue" href="index.php?pagina=1#catalogo">
+            <i class="large material-icons m-36">reply</i>
+            </a>
+        </div>
 
  </main>
 
 <?php 	
+require_once("preloader.php");
 require_once("footer.php");
 ?>
+<script>
+    preloader('preloader01','contenido');
+</script>

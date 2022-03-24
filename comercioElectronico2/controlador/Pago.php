@@ -25,7 +25,7 @@ $producto=$usuario->actualizarCantidaProducto($carrito[$i]["cantidad"],$carrito[
 //atraves de la funcion unset eliminamos los datos almacenados en la variable super global session 
 unset($_SESSION["total"]);
 unset($_SESSION["carrito"]);
-//redirrecionamos al usuario hacia la vista VistaPago´.php
+//redirrecionamos al usuario hacia la vista VistaPago.php
  echo'<script> 
         window.location.href="../vistas/VistaPago.php";
 

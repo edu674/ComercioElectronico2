@@ -78,9 +78,4 @@ $producto=$consulta->VistaProducto($id);
 }
 
 
-public function EliminarCarrito(){
-
 }
-
-}
- ?>

@@ -10,7 +10,7 @@ class tienda{
 
   public function carrusel(){
   global $conexion;       
-  $query=  $conexion -> query("SELECT * FROM `imgcarrusel`") or die($conexion -> error);
+  $query=  $conexion -> query("SELECT * FROM `productos` WHERE `carrusel`=1;") or die($conexion -> error);
   return $query;
   }
 
